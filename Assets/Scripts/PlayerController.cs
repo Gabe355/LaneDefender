@@ -13,7 +13,6 @@ public class PlayerController : MonoBehaviour
     private Vector2 direction;
     private InputAction move;
     private InputAction restart;
-    private InputAction quit;
     private InputAction shoot;
     private Rigidbody2D rb;
     public bool canShoot = true;
@@ -36,11 +35,11 @@ public class PlayerController : MonoBehaviour
     {
         CancelInvoke("IsShooting");
         canShoot = false;
-        StartCoroutine(ShotDelay());
     }
 
     private void Shoot_started(InputAction.CallbackContext obj)
     {
+        canShoot = true;
         if(canShoot)
         {
             InvokeRepeating("IsShooting", 0f, playerFireRate);
@@ -59,11 +58,6 @@ public class PlayerController : MonoBehaviour
     private void IsShooting()
     {
         Instantiate(bullet, transform.position, Quaternion.identity);
-    }
-    IEnumerator ShotDelay()
-    {
-        yield return new WaitForSeconds(playerFireRate);
-        canShoot = true;
     }
     // Update is called once per frame
     void FixedUpdate()
