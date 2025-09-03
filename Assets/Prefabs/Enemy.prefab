@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: -8160786922640275482}
   - component: {fileID: -6053438027918698595}
   - component: {fileID: 1250135879744841006}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -223,7 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11e5ba10a9b349e4cb891d1158962f99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpeed: 5
+  enemySpeed: 2
 --- !u!50 &-6053438027918698595
 Rigidbody2D:
   serializedVersion: 5
@@ -267,7 +267,7 @@ PolygonCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
