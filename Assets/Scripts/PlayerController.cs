@@ -19,6 +19,10 @@ public class PlayerController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        GameSetUp();    
+    }
+    private void GameSetUp()
+    {
         playerInput.currentActionMap.Enable();
         rb = GetComponent<Rigidbody2D>();
         move = playerInput.currentActionMap.FindAction("Move");
@@ -30,7 +34,6 @@ public class PlayerController : MonoBehaviour
         shoot.started += Shoot_started;
         shoot.canceled += Shoot_canceled;
     }
-
     private void Shoot_canceled(InputAction.CallbackContext obj)
     {
         CancelInvoke("IsShooting");
@@ -57,7 +60,7 @@ public class PlayerController : MonoBehaviour
     }
     private void IsShooting()
     {
-        Instantiate(bullet, transform.position, Quaternion.identity);
+        Instantiate(bullet, new Vector2(transform.position.x, transform.position.y + 1), Quaternion.identity);
     }
     // Update is called once per frame
     void FixedUpdate()

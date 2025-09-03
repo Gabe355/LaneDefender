@@ -376,7 +376,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -411,7 +411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11e5ba10a9b349e4cb891d1158962f99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpeed: 4
+  enemySpeed: 5
 --- !u!114 &4680138124388914561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -424,7 +424,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 881f0126b50a7994db804f0f30930b03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyMaxHealth: 2
+  enemyMaxHealth: 1
   enemyCurrentHealth: 0
   healthBar: {fileID: 3493835767669240061}
 --- !u!50 &2193137987126926357
