@@ -3,6 +3,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float playerSpeed;
     [SerializeField] private float playerFireRate;
     [SerializeField] private GameObject bullet;
+    [SerializeField] private GameObject smokePrefab;
     private Vector2 direction;
     private InputAction move;
     private InputAction restart;
@@ -60,7 +62,14 @@ public class PlayerController : MonoBehaviour
     }
     private void IsShooting()
     {
-        Instantiate(bullet, new Vector2(transform.position.x, transform.position.y + 1), Quaternion.identity);
+        Instantiate(bullet, new Vector2(transform.position.x + 0.5f, transform.position.y + 0.2f), Quaternion.identity);
+        GameObject smoke = Instantiate(smokePrefab, new Vector2(transform.position.x + 0.5f, 
+            transform.position.y + 0.2f), Quaternion.identity);
+        smoke.transform.parent = transform;
+    }
+    void OnRestart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);    
     }
     // Update is called once per frame
     void FixedUpdate()
