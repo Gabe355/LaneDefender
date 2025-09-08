@@ -1,5 +1,4 @@
 using TMPro;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,11 +7,6 @@ public class PlayerLives : MonoBehaviour
     [SerializeField] private int lives = 3;
     [SerializeField] private TMP_Text livesText;
     [SerializeField] private AudioSource dmg;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.layer == 8)
