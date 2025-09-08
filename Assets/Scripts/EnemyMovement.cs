@@ -4,6 +4,7 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] private float enemySpeed;
+    [SerializeField] private Sprite hitSprite;
     private Rigidbody2D rb;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -13,7 +14,10 @@ public class EnemyMovement : MonoBehaviour
     IEnumerator StunEnemy(float stunTime)
     {
         enemySpeed = enemySpeed / 100;
-        yield return new WaitForSeconds(stunTime); 
+        GetComponent<Animator>().enabled = false;   
+        GetComponent<SpriteRenderer>().sprite = hitSprite;
+        yield return new WaitForSeconds(stunTime);
+        GetComponent<Animator>().enabled = true;
         enemySpeed = enemySpeed * 100;  
     }
     private void OnTriggerEnter2D(Collider2D collision)

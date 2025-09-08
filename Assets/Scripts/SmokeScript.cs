@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class SmokeScript : MonoBehaviour
 {
+    [SerializeField] private float time;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -11,6 +12,6 @@ public class SmokeScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Destroy(gameObject,0.3f);
+        Destroy(gameObject,time);
     }
 }

@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float playerFireRate;
     [SerializeField] private GameObject bullet;
     [SerializeField] private GameObject smokePrefab;
+    [SerializeField] private AudioSource shootSfx;
     private Vector2 direction;
     private InputAction move;
     private InputAction restart;
@@ -66,6 +67,7 @@ public class PlayerController : MonoBehaviour
         GameObject smoke = Instantiate(smokePrefab, new Vector2(transform.position.x + 0.5f, 
             transform.position.y + 0.2f), Quaternion.identity);
         smoke.transform.parent = transform;
+        shootSfx.Play();    
     }
     void OnRestart()
     {
